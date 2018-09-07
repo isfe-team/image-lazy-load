@@ -22,9 +22,11 @@ of the picture.such base64.img，In the process of scrolling, the visual height 
 # Usage
 
 ```javascript
-scrollLoadPic({
-    preLoadHeight: 0, delay: 1000 }, contaniner) 
-   preLoadHeight: 预加载的高度
-   delay: 延迟加载的时间
-   contaniner: 要加载图片所在的容器，不填时默认Body
+scrollLoadPic(
+    contaniner, // 要加载图片所在的容器，不填时默认Body
+    { 
+        preLoadHeight: 0, // preLoadHeight: 预加载的高度
+        delay: 1000 // delay: 延迟加载的时间
+    }
+)
 ```
