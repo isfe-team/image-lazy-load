@@ -20,7 +20,7 @@ put the picture path that needs to be used in data-src,put a basic picture in th
 of the picture.such base64.img，In the process of scrolling, the visual height is calculated. When the picture is at the visual height, the image path in the data-src is assigned to src, Loading pictures at this time
 
 use methods
- <img src="base"  data-src="use-image">
+ img src="base"  data-src="use-image"
  
  scrollLoadPic({ preLoadHeight: 0, delay: 1000 }, contaniner) 
    preLoadHeight: 预加载的高度
