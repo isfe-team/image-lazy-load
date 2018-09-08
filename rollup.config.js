@@ -1,19 +1,19 @@
 import buble from 'rollup-plugin-buble'
 
+const libName = `ImageLazyLoad`
+
 export default {
   input: 'src/index.js',
   plugins: [ buble() ],
   output: {
     banner: '/*!\n' +
-            ' * hxli\n' +
-            ' * a simple picture lazy load\n' +
-            ' * use methods scrollLoadPic({ preLoadHeight: 0, delay: 2000 }, container)\n' +
-            ' * preLoadHeight: 向下多加载的高度,delay: 延迟加载时间,container: 在哪个容器里加载(获取到的dom)\n' +
+            ` * ${libName} | @bqliu @hxli\n` +
+            ' * a simple image lazy load library\n' +
             ' */',
     footer: '\n',
-    file: 'dist/loadImage.umd.js',
+    file: `dist/${libName}.umd.js`,
     format: 'umd',
-    name: '$$scrollLoadPic',
+    name: `$$${libName}`,
     sourcemap: true
   },
   watch: {

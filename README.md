@@ -10,16 +10,17 @@ A simple lazy loading library for images.
 
 When there're lots of pictures in a web page, in order to reduce the occupation of network resources, we shouldn't load all pictures at one time. The image-lazy-load library is used to solve this problem.
 
-We don't load images until they are visible in a web page. Of course, we can optimize the loading process by using a short delay. For example, when we use a high speed to scroll page, maybe the previous resource is not necessary.
+## Think
+
+To save network resources and speed up loading duration, We don't load images until they are visible in a web page. Of course, we can optimize the loading process by using a short delay. For example, when we use a high speed to scroll page, maybe the previous resource is not necessary.
 
 Also, this library is suitable for the case where there are multiple modules loading the image. Scrolling in their respective areas will only affect their own region.
 
-# Think
+## Implementation
 
-Put the picture path that needs to be used in data-src,put a basic picture in the src attribute
-of the picture.such base64.img，In the process of scrolling, the visual height is calculated. When the picture is at the visual height, the image path in the data-src is assigned to src, Loading pictures at this time
+Set the picture path that needs to be used in `data-src`, and set a basic picture in the src attribute of the picture, Such as a base64 format image. When scrolling, the visual height is calculated and if the pictures are visible, the image path in the `data-src` is assigned to `src` attribute. So the browser will load this.
 
-# Usage
+## Usage
 
 ```javascript
 scrollLoadPic(
