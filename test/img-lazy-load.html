@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>图片懒加载</title>
+  <style>
+    body {
+      height: 100%;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      min-width: 1024px;
+      min-height: 768px;
+      overflow: hidden;
+    }
+    .scroll-wrapper, .right-wrapper {
+      width: 500px;
+      height: 800px;
+      margin-top: 50px;
+      overflow: auto;
+      float: right;
+      border: 1px solid #000;
+    }
+    img {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <div class="right-wrapper">
+     <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1542868102187&di=5fceb9768d1ed5d570a4e25d340f616d&imgtype=0&src=http%3A%2F%2Fimg1.imgtn.bdimg.com%2Fit%2Fu%3D572777631%2C1333008553%26fm%3D214%26gp%3D0.jpg" alt="图片" data-src="https://img.alicdn.com/bao/uploaded/i3/15770/TB2gsDUppXXXXcdXpXXXXXXXXXX_!!15770.jpg_200x200q90.jpg_.webp">
+    <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1542868102187&di=5fceb9768d1ed5d570a4e25d340f616d&imgtype=0&src=http%3A%2F%2Fimg1.imgtn.bdimg.com%2Fit%2Fu%3D572777631%2C1333008553%26fm%3D214%26gp%3D0.jpg" alt="图片" data-src="https://img.alicdn.com/bao/uploaded/i4/19230032308688303/T1R_lfXARXXXXXXXXX_!!0-item_pic.jpg_200x200q90.jpg_.webp">
+    <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1542868102187&di=5fceb9768d1ed5d570a4e25d340f616d&imgtype=0&src=http%3A%2F%2Fimg1.imgtn.bdimg.com%2Fit%2Fu%3D572777631%2C1333008553%26fm%3D214%26gp%3D0.jpg" alt="图片" data-src="https://img.alicdn.com/bao/uploaded/i3/120346371/TB2Zih8ef2H8KJjy0FcXXaDlFXa_!!0-saturn_solar.jpg_200x200q90.jpg_.webp">
+    <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1542868102187&di=5fceb9768d1ed5d570a4e25d340f616d&imgtype=0&src=http%3A%2F%2Fimg1.imgtn.bdimg.com%2Fit%2Fu%3D572777631%2C1333008553%26fm%3D214%26gp%3D0.jpg" alt="图片" data-src="https://img.alicdn.com/bao/uploaded/i2/765398871/TB10AfYfDJ_SKJjSZPiXXb3LpXa_!!0-item_pic.jpg_200x200q90.jpg_.webp">
+    <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1542868102187&di=5fceb9768d1ed5d570a4e25d340f616d&imgtype=0&src=http%3A%2F%2Fimg1.imgtn.bdimg.com%2Fit%2Fu%3D572777631%2C1333008553%26fm%3D214%26gp%3D0.jpg" alt="图片" data-src="https://img.alicdn.com/bao/uploaded/i3/772113220/TB2TNXBsOlnpuFjSZFgXXbi7FXa_!!772113220.jpg_200x200q90.jpg_.webp">
+    <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1542868102187&di=5fceb9768d1ed5d570a4e25d340f616d&imgtype=0&src=http%3A%2F%2Fimg1.imgtn.bdimg.com%2Fit%2Fu%3D572777631%2C1333008553%26fm%3D214%26gp%3D0.jpg" alt="图片" data-src="https://img.alicdn.com/bao/uploaded/i2/1823605357/TB2hNimax285uJjSZFGXXXDmpXa_!!1823605357.jpg_200x200q90.jpg_.webp">
+    <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1542868102187&di=5fceb9768d1ed5d570a4e25d340f616d&imgtype=0&src=http%3A%2F%2Fimg1.imgtn.bdimg.com%2Fit%2Fu%3D572777631%2C1333008553%26fm%3D214%26gp%3D0.jpg" alt="图片" data-src="https://img.alicdn.com/bao/uploaded/i3/54973560/TB2gL2NkZLJ8KJjy0FnXXcFDpXa_!!54973560.jpg_200x200q90.jpg_.webp">
+    <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1542868102187&di=5fceb9768d1ed5d570a4e25d340f616d&imgtype=0&src=http%3A%2F%2Fimg1.imgtn.bdimg.com%2Fit%2Fu%3D572777631%2C1333008553%26fm%3D214%26gp%3D0.jpg" alt="图片" data-src="https://img.alicdn.com/bao/uploaded/i3/32588945/O1CN012FwrHRcWISHeT2o_!!0-saturn_solar.jpg_200x200q90.jpg_.webp">
+    <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1542868102187&di=5fceb9768d1ed5d570a4e25d340f616d&imgtype=0&src=http%3A%2F%2Fimg1.imgtn.bdimg.com%2Fit%2Fu%3D572777631%2C1333008553%26fm%3D214%26gp%3D0.jpg" alt="图片" data-src="https://img.alicdn.com/bao/uploaded/i2/37866509/TB2UO5WdiRnpuFjSZFCXXX2DXXa_!!37866509.jpg_200x200q90.jpg_.webp">
+    <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1542868102187&di=5fceb9768d1ed5d570a4e25d340f616d&imgtype=0&src=http%3A%2F%2Fimg1.imgtn.bdimg.com%2Fit%2Fu%3D572777631%2C1333008553%26fm%3D214%26gp%3D0.jpg" alt="图片" data-src="https://img.alicdn.com/bao/uploaded/i3/2397099220/TB2SCgIiuuSBuNjy1XcXXcYjFXa_!!2397099220.jpg_200x200q90.jpg_.webp" alt="">
+    <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1542868102187&di=5fceb9768d1ed5d570a4e25d340f616d&imgtype=0&src=http%3A%2F%2Fimg1.imgtn.bdimg.com%2Fit%2Fu%3D572777631%2C1333008553%26fm%3D214%26gp%3D0.jpg" data-src="https://img.alicdn.com/bao/uploaded/i2/TB14Fu6PpXXXXcOXVXXXXXXXXXX_!!0-item_pic.jpg_200x200q90.jpg_.webp" alt="">
+  </div>
+  <div class="scroll-wrapper">
+    <div>好看的图片</div>
+    <div>好看的图片</div>
+    <div>好看的图片</div>
+    <div>好看的图片</div>
+    <div>好看的图片</div>
+    <div>好看的图片</div>
+    <div>好看的图片</div>
+    <div>好看的图片</div>
+    <div>好看的图片</div>
+    <div>好看的图片</div>
+    <div>好看的图片</div>
+    <div>好看的图片</div>
+    <div>好看的图片</div>
+    <div>好看的图片</div>
+    <div>好看的图片</div>
+    <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1542868102187&di=5fceb9768d1ed5d570a4e25d340f616d&imgtype=0&src=http%3A%2F%2Fimg1.imgtn.bdimg.com%2Fit%2Fu%3D572777631%2C1333008553%26fm%3D214%26gp%3D0.jpg" alt="图片" data-src="https://img.alicdn.com/bao/uploaded/i3/15770/TB2gsDUppXXXXcdXpXXXXXXXXXX_!!15770.jpg_200x200q90.jpg_.webp">
+    <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1542868102187&di=5fceb9768d1ed5d570a4e25d340f616d&imgtype=0&src=http%3A%2F%2Fimg1.imgtn.bdimg.com%2Fit%2Fu%3D572777631%2C1333008553%26fm%3D214%26gp%3D0.jpg" alt="图片" data-src="https://img.alicdn.com/bao/uploaded/i4/19230032308688303/T1R_lfXARXXXXXXXXX_!!0-item_pic.jpg_200x200q90.jpg_.webp">
+    <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1542868102187&di=5fceb9768d1ed5d570a4e25d340f616d&imgtype=0&src=http%3A%2F%2Fimg1.imgtn.bdimg.com%2Fit%2Fu%3D572777631%2C1333008553%26fm%3D214%26gp%3D0.jpg" alt="图片" data-src="https://img.alicdn.com/bao/uploaded/i3/120346371/TB2Zih8ef2H8KJjy0FcXXaDlFXa_!!0-saturn_solar.jpg_200x200q90.jpg_.webp">
+    <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1542868102187&di=5fceb9768d1ed5d570a4e25d340f616d&imgtype=0&src=http%3A%2F%2Fimg1.imgtn.bdimg.com%2Fit%2Fu%3D572777631%2C1333008553%26fm%3D214%26gp%3D0.jpg" alt="图片" data-src="https://img.alicdn.com/bao/uploaded/i2/765398871/TB10AfYfDJ_SKJjSZPiXXb3LpXa_!!0-item_pic.jpg_200x200q90.jpg_.webp">
+    <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1542868102187&di=5fceb9768d1ed5d570a4e25d340f616d&imgtype=0&src=http%3A%2F%2Fimg1.imgtn.bdimg.com%2Fit%2Fu%3D572777631%2C1333008553%26fm%3D214%26gp%3D0.jpg" alt="图片" data-src="https://img.alicdn.com/bao/uploaded/i3/772113220/TB2TNXBsOlnpuFjSZFgXXbi7FXa_!!772113220.jpg_200x200q90.jpg_.webp">
+    <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1542868102187&di=5fceb9768d1ed5d570a4e25d340f616d&imgtype=0&src=http%3A%2F%2Fimg1.imgtn.bdimg.com%2Fit%2Fu%3D572777631%2C1333008553%26fm%3D214%26gp%3D0.jpg" alt="图片" data-src="https://img.alicdn.com/bao/uploaded/i2/1823605357/TB2hNimax285uJjSZFGXXXDmpXa_!!1823605357.jpg_200x200q90.jpg_.webp">
+    <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1542868102187&di=5fceb9768d1ed5d570a4e25d340f616d&imgtype=0&src=http%3A%2F%2Fimg1.imgtn.bdimg.com%2Fit%2Fu%3D572777631%2C1333008553%26fm%3D214%26gp%3D0.jpg" alt="图片" data-src="https://img.alicdn.com/bao/uploaded/i3/54973560/TB2gL2NkZLJ8KJjy0FnXXcFDpXa_!!54973560.jpg_200x200q90.jpg_.webp">
+    <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1542868102187&di=5fceb9768d1ed5d570a4e25d340f616d&imgtype=0&src=http%3A%2F%2Fimg1.imgtn.bdimg.com%2Fit%2Fu%3D572777631%2C1333008553%26fm%3D214%26gp%3D0.jpg" alt="图片" data-src="https://img.alicdn.com/bao/uploaded/i3/32588945/O1CN012FwrHRcWISHeT2o_!!0-saturn_solar.jpg_200x200q90.jpg_.webp">
+    <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1542868102187&di=5fceb9768d1ed5d570a4e25d340f616d&imgtype=0&src=http%3A%2F%2Fimg1.imgtn.bdimg.com%2Fit%2Fu%3D572777631%2C1333008553%26fm%3D214%26gp%3D0.jpg" alt="图片" data-src="https://img.alicdn.com/bao/uploaded/i2/37866509/TB2UO5WdiRnpuFjSZFCXXX2DXXa_!!37866509.jpg_200x200q90.jpg_.webp">
+    <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1542868102187&di=5fceb9768d1ed5d570a4e25d340f616d&imgtype=0&src=http%3A%2F%2Fimg1.imgtn.bdimg.com%2Fit%2Fu%3D572777631%2C1333008553%26fm%3D214%26gp%3D0.jpg" alt="图片" data-src="https://img.alicdn.com/bao/uploaded/i3/2397099220/TB2SCgIiuuSBuNjy1XcXXcYjFXa_!!2397099220.jpg_200x200q90.jpg_.webp" alt="">
+    <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1542868102187&di=5fceb9768d1ed5d570a4e25d340f616d&imgtype=0&src=http%3A%2F%2Fimg1.imgtn.bdimg.com%2Fit%2Fu%3D572777631%2C1333008553%26fm%3D214%26gp%3D0.jpg" data-src="https://img.alicdn.com/bao/uploaded/i2/TB14Fu6PpXXXXcOXVXXXXXXXXXX_!!0-item_pic.jpg_200x200q90.jpg_.webp" alt="">
+  </div>
+  <script src="../src/index.js"></script>
+  <script>
+    // 可传额外多加载的高度preLoadHeight和延迟加载的时间delayTime，放在对象里
+    var domRight = document.getElementsByClassName('scroll-wrapper')[0]
+    var domLeft = document.getElementsByClassName('right-wrapper')[0]
+    var imageRightLazyLoad = new ImageLazyLoad({preloadHeight: 0, delay: 1000}, domRight)
+    var imageLeftLazyLoad = new ImageLazyLoad({preloadHeight: 0, delay: 100}, domLeft )
+    imageRightLazyLoad._init()
+    imageLeftLazyLoad._init()
+</script>
+</body>
+</html>

@@ -13,11 +13,11 @@
    *
    * @example
    */
-  var ImageLazyLoad = function ImageLazyLoad (container, ref) {
-    if ( container === void 0 ) container = document.documentElement;
+  var ImageLazyLoad = function ImageLazyLoad (ref, container ) {
     if ( ref === void 0 ) ref = { };
     var preloadHeight = ref.preloadHeight; if ( preloadHeight === void 0 ) preloadHeight = 0;
     var delay = ref.delay; if ( delay === void 0 ) delay = 0;
+    if ( container === void 0 ) container = document;
 
     this.container = container;
     this.option = { preloadHeight: preloadHeight, delay: delay };
@@ -71,17 +71,18 @@
    * @private
    */
   ImageLazyLoad.prototype._loadImagesCore = function _loadImagesCore () {
+      var this$1 = this;
+
     var images = this.container.querySelectorAll('img');
-    var containerScrollTop = this.container.scrollTop;
-    var containerHeight = this.container.offsetHeight;
+    var containerScrollTop = this.container.nodeType === 9 ? document.documentElement.scrollTop : this.container.scrollTop;
+    var containerHeight = this.container.nodeType === 9 ? document.documentElement.clientHeight : this.container.offsetHeight;
 
     // load condition
-    // containerHeight + preloadHeight + containerScrollTop > the image's offsetTop
     // in some layout, if one image fits this condition, the following images fit, too.
     // this can be set a configuration.
     var hasNotLoadedImages = [].concat( images ).filter(function (image) {
       var loadedThisImage = image.dataset['__loaded'];
-      var hasSrc = image.dataset('src');
+      var hasSrc = image.dataset['src'];
 
       // hasn't loaded & has src
       return !loadedThisImage && hasSrc
@@ -94,12 +95,12 @@
 
     hasNotLoadedImages.filter(function (image) {
       // and fit condition
-      return containerHeight + preloadHeight + containerScrollTop > image.offsetTop
+      var viewTop = image.offsetTop - containerScrollTop;
+      return viewTop< containerHeight + this$1.option.preloadHeight && viewTop > -image.offsetHeight
     })
       .forEach(function (image) {
-        var rawSrc = image.dataset('src');
+        var rawSrc = image.dataset['src'];
         image.src = rawSrc;
-
         image.dataset['__loaded'] = true;
       });
   };
